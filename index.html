@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gaema</title>
+<meta name="description" content="gaema — machine-learning systems, models, and tools.">
+<meta property="og:title" content="gaema">
+<meta property="og:description" content="Machine-learning systems, models, and tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gaema.ai">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='26' font-family='monospace' font-weight='700' fill='%231f6feb'>g</text></svg>">
+<style>
+  :root{
+    --bg:#ffffff; --ink:#16191d; --muted:#586069; --line:#e6e9ee;
+    --accent:#1f6feb; --accent-soft:#eef3ff; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--bg);
+    min-height:100vh; display:flex; flex-direction:column;
+  }
+  .wrap{width:100%; max-width:980px; margin:0 auto; padding:0 22px}
+  /* hero */
+  header{padding:18vh 0 6vh; position:relative}
+  header::before{
+    content:""; position:absolute; inset:-40% 0 auto -20%; height:60vh; z-index:-1;
+    background:radial-gradient(60% 70% at 20% 30%, rgba(31,111,235,.08), transparent 70%);
+    pointer-events:none;
+  }
+  .mark{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-weight:700; font-size:clamp(44px,9vw,76px); letter-spacing:-.03em;
+    margin:0; line-height:1;
+  }
+  .mark .dot{color:var(--accent)}
+  .tag{font-size:clamp(16px,2.4vw,20px); color:var(--muted); margin:16px 0 0; max-width:42ch}
+  /* cards */
+  main{padding-bottom:8vh}
+  .rule{border:0; border-top:1px solid var(--line); margin:0 0 26px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(238px,1fr)); gap:14px}
+  .card{
+    display:flex; flex-direction:column; gap:6px;
+    border:1px solid var(--line); border-radius:13px; padding:18px 18px 20px;
+    background:var(--card); text-decoration:none; color:inherit;
+    transition:transform .14s ease, border-color .14s ease, box-shadow .14s ease;
+  }
+  a.card:hover{transform:translateY(-3px); border-color:var(--accent);
+    box-shadow:0 6px 22px rgba(31,111,235,.12)}
+  .card .name{font-family:ui-monospace,Menlo,monospace; font-weight:650; font-size:16px;
+    display:flex; align-items:center; gap:8px}
+  .card .name .arw{color:var(--muted); transition:transform .14s, color .14s}
+  a.card:hover .name .arw{color:var(--accent); transform:translateX(3px)}
+  .card .desc{color:var(--muted); font-size:14px; line-height:1.5}
+  /* footer */
+  footer{margin-top:auto; border-top:1px solid var(--line)}
+  .foot{display:flex; flex-wrap:wrap; gap:8px 18px; align-items:center;
+    justify-content:space-between; padding:20px 0; color:var(--muted); font-size:14px}
+  .foot a{color:var(--accent); text-decoration:none}
+  .foot a:hover{text-decoration:underline}
+  .foot .mono{font-family:ui-monospace,Menlo,monospace}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1 class="mark">gaema<span class="dot">.ai</span></h1>
+  <p class="tag">Machine-learning systems, models, and tools.</p>
+</header>
+
+<main class="wrap">
+  <hr class="rule">
+  <div class="grid">
+    <a class="card" href="https://viz.math.gaema.ai">
+      <span class="name">viz <span class="arw">→</span></span>
+      <span class="desc">Interactive visualizations of the math inside CNNs &amp; LLMs — one
+        page per mechanism, no build step.</span>
+    </a>
+    <a class="card" href="https://github.com/gaema">
+      <span class="name">github <span class="arw">→</span></span>
+      <span class="desc">Open-source projects and code.</span>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© gaema · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></span>
+    <a class="mono" href="mailto:hello@gaema.ai">hello@gaema.ai</a>
+  </div>
+</footer>
+</body>
+</html>
