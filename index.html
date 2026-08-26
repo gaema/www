@@ -23,13 +23,22 @@
     --n8:#586069; --n14:#1a1d21;
     --accent:#1f6feb; --accent-soft:#eef3ff;
   }
+  /* Three states, in this order: the light default, the OS preference when the
+     visitor has not chosen, and an explicit choice, which wins. Same contract
+     as viz and arch -- the bar's toggle needs an attribute to set. */
   @media (prefers-color-scheme:dark){
-    :root{
+    :root:not([data-theme="light"]){
       color-scheme:dark;
       --n0:#16191d; --n1:#1a1e22; --n3:#2b323a; --n4:#3d4650;
       --n8:#b3bcc5; --n14:#f0f3f6;
       --accent:#58a6ff; --accent-soft:#122437;
     }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --n0:#16191d; --n1:#1a1e22; --n3:#2b323a; --n4:#3d4650;
+    --n8:#b3bcc5; --n14:#f0f3f6;
+    --accent:#58a6ff; --accent-soft:#122437;
   }
   :root{
     --ground:var(--n0); --panel:var(--n0);
@@ -56,7 +65,20 @@
   }
   .wrap{width:100%; max-width:980px; margin:0 auto; padding:0 22px}
   /* hero */
-  header{padding:18vh 0 6vh}
+  /* Site top bar -- the same component viz and arch carry. */
+  .top{position:sticky;top:0;z-index:20;background:var(--panel);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;gap:16px;min-height:56px;flex-wrap:wrap}
+  .top .brand{font-weight:650;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+  .top .brand:hover{color:var(--accent)}
+  .top-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+  .pick{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);background:var(--panel);
+    border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer;max-width:15rem}
+  .pick:hover{border-color:var(--accent)}
+  .pick option{background:var(--panel);color:var(--ink)}
+  .ghost{font:13px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink-dim);background:var(--panel);
+    border:1px solid var(--line-strong);border-radius:7px;padding:6px 10px;cursor:pointer}
+  .ghost:hover{border-color:var(--accent);color:var(--accent)}
+  header{padding:12vh 0 6vh}
   .mark{
     font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
     font-weight:700; font-size:clamp(44px,9vw,76px); letter-spacing:-.03em;
@@ -93,6 +115,20 @@
 </style>
 </head>
 <body>
+<div class="top">
+  <div class="wrap">
+    <a class="brand" href="./">gaema</a>
+    <div class="top-right">
+      <select class="pick" id="pick" aria-label="Go to a site">
+        <option value="" selected>gaema.ai</option>
+        <option value="https://viz.math.gaema.ai">viz</option>
+        <option value="https://arch.hw.gaema.ai">arch</option>
+        <option value="https://github.com/gaema">github</option>
+      </select>
+      <button class="ghost" id="theme-toggle" type="button">A</button>
+    </div>
+  </div>
+</div>
 <header class="wrap">
   <h1 class="mark">gaema<span class="dot">.ai</span></h1>
   <p class="tag">Machine-learning systems, models, and tools.</p>
@@ -124,5 +160,39 @@
     <a class="mono" href="mailto:hello@gaema.ai">hello@gaema.ai</a>
   </div>
 </footer>
+<script>
+(function () {
+  var KEY = 'gaema-theme';
+  var GLYPH = { light: '\u2600', dark: '\u263e', auto: 'A' };
+  var NEXT = { light: 'dark', dark: 'auto', auto: 'light' };
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+  function current() { return document.documentElement.getAttribute('data-theme') || 'auto'; }
+  function systemTheme() {
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  function title(m) {
+    return 'Theme: ' + (m === 'auto' ? 'auto (system: ' + systemTheme() + ')' : m) + ' \u2014 click for ' + NEXT[m];
+  }
+  function label() {
+    var b = document.getElementById('theme-toggle'); if (!b) return;
+    var m = current(); b.textContent = GLYPH[m]; b.title = title(m); b.setAttribute('aria-label', title(m));
+  }
+  function apply(m) {
+    if (m === 'auto') document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', m);
+    try { m === 'auto' ? localStorage.removeItem(KEY) : localStorage.setItem(KEY, m); } catch (e) {}
+    label();
+  }
+  window.addEventListener('DOMContentLoaded', function () {
+    label();
+    var b = document.getElementById('theme-toggle');
+    if (b) b.addEventListener('click', function () { apply(NEXT[current()]); });
+    var p = document.getElementById('pick');
+    if (p) p.addEventListener('change', function () { if (p.value) location.href = p.value; });
+  });
+})();
+</script>
 </body>
 </html>
