@@ -40,18 +40,23 @@
   html,body{margin:0}
   body{
     font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    color:var(--ink); background:var(--ground);
+    color:var(--ink);
+    /* The hero glow lives HERE, on the full-bleed body, not on a pseudo-element
+       of the centred .wrap. A radial gradient is clipped by its own box, and
+       header::before was only as wide as the 980px column plus a little -- so
+       on any viewport wider than that the glow was still at roughly half its
+       peak opacity when the box ended, and cut to nothing at a hard vertical
+       edge. body spans the viewport, so there is no edge to cut against. */
+    background:
+      radial-gradient(60% 70% at 20% 30%,
+        color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%)
+        no-repeat 0 0 / 100% 70vh,
+      var(--ground);
     min-height:100vh; display:flex; flex-direction:column;
   }
   .wrap{width:100%; max-width:980px; margin:0 auto; padding:0 22px}
   /* hero */
-  header{padding:18vh 0 6vh; position:relative}
-  header::before{
-    content:""; position:absolute; inset:-40% 0 auto -20%; height:60vh; z-index:-1;
-    background:radial-gradient(60% 70% at 20% 30%,
-      color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%);
-    pointer-events:none;
-  }
+  header{padding:18vh 0 6vh}
   .mark{
     font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
     font-weight:700; font-size:clamp(44px,9vw,76px); letter-spacing:-.03em;
