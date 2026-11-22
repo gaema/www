@@ -120,6 +120,16 @@
     box-shadow:0 1px 6px color-mix(in srgb, var(--accent) 12%, transparent)}
   .card .name{font-family:ui-monospace,Menlo,monospace; font-weight:650; font-size:16px;
     display:flex; align-items:center; gap:8px}
+  /* Card logos: a light and a dark drawing of each, switched by the same three
+     states as the colours above (OS preference, overridden by the toggle). */
+  .card .logo{width:28px; height:28px; flex:none}
+  .card .logo.dk{display:none}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .card .logo.lt{display:none}
+    :root:not([data-theme="light"]) .card .logo.dk{display:block}
+  }
+  :root[data-theme="dark"] .card .logo.lt{display:none}
+  :root[data-theme="dark"] .card .logo.dk{display:block}
   .card .name .arw{color:var(--ink-dim); transition:transform .14s, color .14s}
   a.card:hover .name .arw{color:var(--accent); transform:translateX(3px)}
   .card .desc{color:var(--ink-dim); font-size:14px; line-height:1.5}
@@ -157,31 +167,31 @@
   <hr class="rule">
   <div class="grid">
     <a class="card" href="https://viz.math.gaema.ai">
-      <span class="name">viz <span class="arw">→</span></span>
+      <span class="name"><img class="logo lt" src="logos/viz-on-light.svg" alt=""><img class="logo dk" src="logos/viz-on-dark.svg" alt="">viz <span class="arw">→</span></span>
       <span class="desc">Interactive visualizations of the math inside CNNs &amp; LLMs — one
         page per mechanism, no build step.</span>
     </a>
     <a class="card" href="https://arch.hw.gaema.ai">
-      <span class="name">arch <span class="arw">→</span></span>
+      <span class="name"><img class="logo lt" src="logos/arch-on-light.svg" alt=""><img class="logo dk" src="logos/arch-on-dark.svg" alt="">arch <span class="arw">→</span></span>
       <span class="desc">Accelerator architectures from AMD, Intel, NVIDIA &amp; Tenstorrent —
         die map, traced read, and hierarchy, drawn to one structure so they compare.</span>
     </a>
     <a class="card" href="https://serve.gaema.ai">
-      <span class="name">serve <span class="arw">→</span></span>
+      <span class="name"><img class="logo lt" src="logos/serve-on-light.svg" alt=""><img class="logo dk" src="logos/serve-on-dark.svg" alt="">serve <span class="arw">→</span></span>
       <span class="desc">A voice assistant that talks and draws — invitation only.</span>
     </a>
     <a class="card" href="accelx/">
-      <span class="name">accelx <span class="arw">→</span></span>
+      <span class="name"><img class="logo lt" src="logos/accelx-on-light.svg" alt=""><img class="logo dk" src="logos/accelx-on-dark.svg" alt="">accelx <span class="arw">→</span></span>
       <span class="desc">A GPU compute stack for Arm Mali inference — runtime, compiler and
         Vulkan driver — available for license.</span>
     </a>
     <a class="card" href="https://engine.gaema.ai">
-      <span class="name">engine <span class="arw">→</span></span>
+      <span class="name"><img class="logo lt" src="logos/engine-on-light.svg" alt=""><img class="logo dk" src="logos/engine-on-dark.svg" alt="">engine <span class="arw">→</span></span>
       <span class="desc">An inference engine for GPUs and NPUs, with its own compilers and
         runtimes, available for license — invitation only.</span>
     </a>
     <a class="card" href="https://github.com/gaema">
-      <span class="name">github <span class="arw">→</span></span>
+      <span class="name"><img class="logo lt" src="logos/github-on-light.svg" alt=""><img class="logo dk" src="logos/github-on-dark.svg" alt="">github <span class="arw">→</span></span>
       <span class="desc">Open-source projects and code.</span>
     </a>
   </div>
