@@ -9,6 +9,24 @@
 <meta property="og:description" content="Machine-learning systems, models, and tools.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gaema.ai">
+<link rel="canonical" href="https://gaema.ai/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "gaema",
+  "url": "https://gaema.ai",
+  "email": "hello@gaema.ai",
+  "description": "gaema builds machine-learning systems, models and tools: interactive explanations of the math inside neural networks, reference drawings of AI accelerator architectures, and inference software for GPUs and NPUs that hardware makers can license.",
+  "sameAs": [
+    "https://github.com/gaema",
+    "https://viz.math.gaema.ai",
+    "https://arch.hw.gaema.ai",
+    "https://engine.gaema.ai",
+    "https://serve.gaema.ai"
+  ]
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='26' font-family='monospace' font-weight='700' fill='%231f6feb'>g</text></svg>">
 <style>
   /* Shared palette with viz and arch. The ramp below is the same one viz
@@ -63,7 +81,7 @@
       var(--ground);
     min-height:100vh; display:flex; flex-direction:column;
   }
-  .wrap{width:100%; max-width:980px; margin:0 auto; padding:0 22px}
+  .wrap{width:100%; max-width:980px; margin:0 auto; padding-left:22px; padding-right:22px}
   /* hero */
   /* Site top bar -- the same component viz and arch carry. */
   .top{position:sticky;top:0;z-index:20;background:var(--panel);border-bottom:1px solid var(--line)}
@@ -108,7 +126,7 @@
   /* footer */
   footer{margin-top:auto; border-top:1px solid var(--line)}
   .foot{display:flex; flex-wrap:wrap; gap:8px 18px; align-items:center;
-    justify-content:space-between; padding:20px 0; color:var(--ink-dim); font-size:14px}
+    justify-content:space-between; padding-top:20px; padding-bottom:20px; color:var(--ink-dim); font-size:14px}
   .foot a{color:var(--accent); text-decoration:none}
   .foot a:hover{text-decoration:underline}
   .foot .mono{font-family:ui-monospace,Menlo,monospace}
@@ -123,6 +141,7 @@
         <option value="" selected>gaema.ai</option>
         <option value="https://viz.math.gaema.ai">viz</option>
         <option value="https://arch.hw.gaema.ai">arch</option>
+        <option value="accelx/">accelx</option>
         <option value="https://github.com/gaema">github</option>
       </select>
       <button class="ghost" id="theme-toggle" type="button">A</button>
@@ -151,10 +170,10 @@
       <span class="name">serve <span class="arw">→</span></span>
       <span class="desc">A voice assistant that talks and draws — invitation only.</span>
     </a>
-    <a class="card" href="https://accelx.gaema.ai">
+    <a class="card" href="accelx/">
       <span class="name">accelx <span class="arw">→</span></span>
-      <span class="desc">A GPU compute stack for Arm Mali inference, available for license —
-        invitation only.</span>
+      <span class="desc">A GPU compute stack for Arm Mali inference — runtime, compiler and
+        Vulkan driver — available for license.</span>
     </a>
     <a class="card" href="https://engine.gaema.ai">
       <span class="name">engine <span class="arw">→</span></span>
