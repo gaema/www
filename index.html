@@ -28,7 +28,7 @@
   ]
 }
 </script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='26' font-family='monospace' font-weight='700' fill='%231f6feb'>g</text></svg>">
+<link rel="icon" href="logos/site-mark.svg" type="image/svg+xml">
 <style>
   /* Shared palette with viz and arch. The ramp below is the same one viz
      generates from framework/theme.js and arch carries in assets/theme.css;
@@ -87,7 +87,13 @@
   /* Site top bar -- the same component viz and arch carry. */
   .top{position:sticky;top:0;z-index:20;background:var(--panel);border-bottom:1px solid var(--line)}
   .top .wrap{display:flex;align-items:center;gap:16px;min-height:56px;flex-wrap:wrap}
-  .top .brand{font-weight:650;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+  .top .brand{font-weight:650;letter-spacing:-.01em;color:var(--ink);text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px}
+  /* The site logo's mark (logos/site-mark.svg, one drawing that reads on both grounds): before the
+     name in the bar, and before the title in the hero. */
+  .top .brand .site-mark{height:22px;width:auto;flex:none}
+  .hero-title{display:flex;align-items:center;gap:clamp(12px,2.4vw,22px)}
+  .hero-title .site-mark{height:clamp(44px,9vw,76px);width:auto;flex:none}
   .top .brand:hover{color:var(--accent)}
   .top-right{display:flex;align-items:center;gap:8px;margin-left:auto}
   .pick{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);background:var(--panel);
@@ -146,7 +152,7 @@
 <body>
 <div class="top">
   <div class="wrap">
-    <a class="brand" href="./">gaema</a>
+    <a class="brand" href="./"><img class="site-mark" src="logos/site-mark.svg" alt="">gaema</a>
     <div class="top-right">
       <select class="pick" id="pick" aria-label="Go to a site">
         <option value="" selected>gaema.ai</option>
@@ -162,7 +168,7 @@
   </div>
 </div>
 <header class="wrap">
-  <h1 class="mark">gaema<span class="dot">.ai</span></h1>
+  <div class="hero-title"><img class="site-mark" src="logos/site-mark.svg" alt=""><h1 class="mark">gaema<span class="dot">.ai</span></h1></div>
   <p class="tag">Machine-learning systems, models, and tools.</p>
 </header>
 

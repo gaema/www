@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="52 52 1212 728" width="1212" height="728">
+  <defs>
+    <path id="ribbon-outer" d="M72,497 C230,470 300,360 380,250 C460,140 580,72 700,72 C830,72 940,170 1080,285 C960,215 860,150 740,142 C620,140 530,220 470,300 C430,355 390,420 300,460 C220,490 140,497 72,497 Z"/>
+    <path id="ribbon-inner" d="M1080,285 C940,200 860,150 740,142 C620,140 530,220 470,300 C430,355 405,400 395,425 C470,360 560,290 660,250 C760,225 880,232 960,255 C1010,268 1050,280 1080,285 Z"/>
+    <path id="ribbon-seam" d="M395,425 C430,360 470,300 470,300 C530,220 620,140 740,142 C860,150 940,200 1080,285"/>
+    <path id="ribbon-edge" d="M72,497 C140,497 220,490 300,460"/>
+    <linearGradient id="top-outer" gradientUnits="userSpaceOnUse" x1="110" y1="490" x2="930" y2="120">
+      <stop offset="0" stop-color="#0d2b28"/>
+      <stop offset="0.30" stop-color="#1c5e4f"/>
+      <stop offset="0.55" stop-color="#3f9f81"/>
+      <stop offset="0.80" stop-color="#8fe0c4"/>
+      <stop offset="1" stop-color="#b9f2df"/>
+    </linearGradient>
+    <linearGradient id="top-inner" gradientUnits="userSpaceOnUse" x1="410" y1="420" x2="1080" y2="250">
+      <stop offset="0" stop-color="#241f52"/>
+      <stop offset="0.35" stop-color="#4a3bb8"/>
+      <stop offset="0.60" stop-color="#7a63ee"/>
+      <stop offset="1" stop-color="#d4c6ff"/>
+    </linearGradient>
+    <linearGradient id="low-outer" gradientUnits="userSpaceOnUse" x1="110" y1="490" x2="1080" y2="285">
+      <stop offset="0" stop-color="#9fb8e6"/>
+      <stop offset="0.25" stop-color="#cae3f8"/>
+      <stop offset="0.42" stop-color="#d9d3f0"/>
+      <stop offset="0.60" stop-color="#eecdbd"/>
+      <stop offset="0.80" stop-color="#c8b0ea"/>
+      <stop offset="1" stop-color="#a98ad6"/>
+    </linearGradient>
+    <linearGradient id="low-inner" gradientUnits="userSpaceOnUse" x1="410" y1="420" x2="1080" y2="285">
+      <stop offset="0" stop-color="#d3ebfc"/>
+      <stop offset="0.22" stop-color="#6fbf9f"/>
+      <stop offset="0.42" stop-color="#1d5a49"/>
+      <stop offset="0.62" stop-color="#3a2b63"/>
+      <stop offset="1" stop-color="#4a2a6c"/>
+    </linearGradient>
+    <linearGradient id="leaf-top" gradientUnits="userSpaceOnUse" x1="540" y1="460" x2="880" y2="340">
+      <stop offset="0" stop-color="#b79be8"/>
+      <stop offset="0.5" stop-color="#6c56c4"/>
+      <stop offset="1" stop-color="#3a2d7a"/>
+    </linearGradient>
+    <linearGradient id="leaf-low" gradientUnits="userSpaceOnUse" x1="560" y1="480" x2="840" y2="420">
+      <stop offset="0" stop-color="#c9a2e6"/>
+      <stop offset="0.45" stop-color="#e2b48a"/>
+      <stop offset="1" stop-color="#c88a4e"/>
+    </linearGradient>
+  </defs>
+
+  <g id="upper">
+    <use href="#ribbon-outer" fill="url(#top-outer)"/>
+    <use href="#ribbon-inner" fill="url(#top-inner)"/>
+    <use href="#ribbon-seam" fill="none" stroke="#fff6e8" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+    <use href="#ribbon-edge" fill="none" stroke="#f3dcc0" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  </g>
+  <g id="lower" transform="rotate(180 650 410)">
+    <use href="#ribbon-outer" fill="url(#low-outer)"/>
+    <use href="#ribbon-inner" fill="url(#low-inner)"/>
+    <use href="#ribbon-seam" fill="none" stroke="#fff6e8" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+    <use href="#ribbon-edge" fill="none" stroke="#f3dcc0" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  </g>
+  <g id="leaf">
+    <path fill="url(#leaf-low)" d="M533,465 C650,472 800,420 878,338 C820,370 800,470 740,515 C700,545 640,540 600,510 C570,490 545,475 533,465 Z"/>
+    <path fill="url(#leaf-top)" d="M533,465 C620,400 760,350 878,338 C800,420 650,472 533,465 Z"/>
+    <path fill="none" stroke="#fff4e6" stroke-width="3.5" stroke-linecap="round" opacity="0.9" d="M533,465 C650,472 800,420 878,338"/>
+  </g>
+</svg>
