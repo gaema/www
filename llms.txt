@@ -9,7 +9,7 @@ Site content is licensed CC BY-SA 4.0. Search engines and AI systems may index t
 - [viz](https://viz.math.gaema.ai): Interactive visualizations of the math inside CNNs and LLMs, one page per mechanism, no build step.
 - [arch](https://arch.hw.gaema.ai): Accelerator architectures from AMD, Intel, NVIDIA and Tenstorrent (die map, traced read and memory hierarchy), drawn to one structure so they compare.
 - [engine](https://engine.gaema.ai): An inference engine for GPUs and NPUs, with its own compilers and runtimes, available for license. The licensing page is by invitation.
-- [accelx](https://gaema.ai/accelx/): A GPU compute stack for Arm Mali GPUs (runtime, compiler and a Vulkan driver in development) that runs neural-network inference without Mesa, available for license.
+- [accelx](https://accelx.gaema.ai): A GPU compute stack for Arm Mali GPUs (runtime, compiler and a Vulkan driver in development) that runs neural-network inference without Mesa, available for license. The licensing page is by invitation.
 - [serve](https://serve.gaema.ai): A voice assistant that talks and draws. By invitation.
 - [github](https://github.com/gaema): Open-source projects and code.
 
