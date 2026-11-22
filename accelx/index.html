@@ -10,7 +10,7 @@
 <meta property="og:description" content="A GPU compute stack for Arm Mali inference, available for license.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gaema.ai/accelx/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='26' font-family='monospace' font-weight='700' fill='%231f6feb'>g</text></svg>">
+<link rel="icon" href="../logos/accelx-mark.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,7 +76,18 @@
   .wrap{width:100%; max-width:980px; margin:0 auto; padding-left:22px; padding-right:22px}
   .top{position:sticky;top:0;z-index:20;background:var(--panel);border-bottom:1px solid var(--line)}
   .top .wrap{display:flex;align-items:center;gap:16px;min-height:56px;flex-wrap:wrap}
-  .top .brand{font-weight:650;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+  .top .brand{font-weight:650;letter-spacing:-.01em;color:var(--ink);text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px}
+  /* The site's mark before its name: light and dark drawings, switched by the same three
+     states as the colours (OS preference, overridden by the toggle). */
+  .brand-mark{width:22px;height:22px;flex:none;margin-right:2px}
+  .brand-mark.dk{display:none}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .brand-mark.lt{display:none}
+    :root:not([data-theme="light"]) .brand-mark.dk{display:block}
+  }
+  :root[data-theme="dark"] .brand-mark.lt{display:none}
+  :root[data-theme="dark"] .brand-mark.dk{display:block}
   .top .brand:hover{color:var(--accent)}
   .top .brand .site{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
   .top .brand .sep{color:var(--ink-dim)}
@@ -114,7 +125,7 @@
 <body>
 <div class="top">
   <div class="wrap">
-    <a class="brand" href="../"><span class="site">accelx</span> <span class="sep">·</span> gaema</a>
+    <a class="brand" href="../"><img class="brand-mark lt" src="../logos/accelx-on-light.svg" alt=""><img class="brand-mark dk" src="../logos/accelx-on-dark.svg" alt=""><span class="site">accelx</span> <span class="sep">·</span> gaema</a>
     <div class="top-right">
       <button class="ghost" id="theme-toggle" type="button">A</button>
     </div>
