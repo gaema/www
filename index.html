@@ -93,7 +93,7 @@
   /* The site logo's mark (logos/site-mark.svg, one drawing that reads on both grounds): before the
      name in the bar, and before the title in the hero. */
   .top .brand .site-mark{height:22px;width:auto;flex:none}
-  .hero-title{display:flex;align-items:center;gap:clamp(12px,2.4vw,22px)}
+  .hero-title{display:flex;align-items:center;justify-content:center;gap:clamp(12px,2.4vw,22px)}
   .hero-title .site-mark{height:clamp(44px,9vw,76px);width:auto;flex:none}
   .top .brand:hover{color:var(--accent)}
   .top-right{display:flex;align-items:center;gap:8px;margin-left:auto}
@@ -104,14 +104,14 @@
   .ghost{font:13px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink-dim);background:var(--panel);
     border:1px solid var(--line-strong);border-radius:7px;padding:6px 10px;cursor:pointer}
   .ghost:hover{border-color:var(--accent);color:var(--accent)}
-  header{padding:12vh 0 6vh}
+  header{padding:12vh 0 6vh; text-align:center}
   .mark{
     font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
     font-weight:700; font-size:clamp(44px,9vw,76px); letter-spacing:-.03em;
     margin:0; line-height:1;
   }
   .mark .dot{color:var(--accent)}
-  .tag{font-size:clamp(16px,2.4vw,20px); color:var(--ink-dim); margin:16px 0 0; max-width:42ch}
+  .tag{font-size:clamp(16px,2.4vw,20px); color:var(--ink-dim); margin:16px auto 0; max-width:42ch}
   /* cards */
   main{padding-bottom:8vh}
   .rule{border:0; border-top:1px solid var(--line); margin:0 0 26px}
